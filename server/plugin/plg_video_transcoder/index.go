@@ -189,6 +189,7 @@ func hls_transcode(ctx App, res http.ResponseWriter, req *http.Request) {
 		"-i", cachePath,
 		"-t", fmt.Sprintf("%d.00", HLS_SEGMENT_LENGTH),
 		"-vf", fmt.Sprintf("scale=-2:%d", 720),
+		"subtitles=", cachePath,
 		"-vcodec", "libx264",
 		"-preset", "veryfast",
 		"-acodec", "aac",
